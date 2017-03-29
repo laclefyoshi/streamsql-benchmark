@@ -79,7 +79,7 @@ $ ./bin/sqlcmd
 $ docker run -d --name superset -p 80:8088 tylerfowler/superset
 ```
 
-http://35.189.158.54/ をSafariで開けることを確認 (admin:superset)
+http://サーバIP:80/ をSafariで開けることを確認 (admin:superset)
 
 ## ここまでまとめ
 
