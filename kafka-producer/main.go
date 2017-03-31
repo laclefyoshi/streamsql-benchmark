@@ -16,7 +16,7 @@ func main() {
 	url := flag.String("url", "https://api.bitcoinaverage.com/ticker/global/all", "JSON URL")
 	topic := flag.String("topic", "test-bitcoin", "Topic")
 	wait := flag.Int("wait", 30, "seconds")
-	// another example: https://api.github.com/events, test-github, 1
+    // another example: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson, test-geo, 3600
 	flag.Parse()
 
 	brokerList := strings.Split(*brokers, ",")
@@ -42,7 +42,7 @@ func main() {
 			if err != nil {
 				log.Fatalln("Failed to get response body: ", err)
 			}
-			message <- string(body[:])
+			message <- strings.Replace(string(body[:]), "\n", " ", -1)
 			time.Sleep(time.Duration(*wait) * time.Second)
 		}
 	}()
